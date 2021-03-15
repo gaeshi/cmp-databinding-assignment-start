@@ -1,0 +1,12 @@
+<app-game-control (start)="startGame()" (stop)="stopGame()"></app-game-control>
+<div class="game-results" *ngIf="numbers.length">
+  <ng-container *ngFor="let n of numbers">
+    <ng-template [ngIf]="n % 2 === 0" [ngIfElse]="odd">
+      <app-even [number]="n"></app-even>
+    </ng-template>
+
+    <ng-template #odd>
+      <app-odd [number]="n"></app-odd>
+    </ng-template>
+  </ng-container>
+</div>
